@@ -44,7 +44,7 @@ public class UsersController {
 
 	}
 
-	// Members 회원가입
+	// Member 회원가입
 	@PostMapping("/member/join")
 	public String membersJoin(MembersJoinDto membersJoinDto) {
 
@@ -52,6 +52,8 @@ public class UsersController {
 		if (usersPS != null) {
 			return "redirect:/loginForm";
 		}
+		System.out.println("디버그: " + membersJoinDto.getUsername());
+		System.out.println("디버그: " + membersJoinDto.getMembersEmail());
 		usersService.구매자회원가입(membersJoinDto);
 		return "redirect:/";
 

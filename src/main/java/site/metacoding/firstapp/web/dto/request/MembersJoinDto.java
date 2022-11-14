@@ -1,11 +1,11 @@
 package site.metacoding.firstapp.web.dto.request;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.Setter;
 import site.metacoding.firstapp.domain.members.Members;
 import site.metacoding.firstapp.domain.users.Users;
 
-@NoArgsConstructor
+@Setter
 @Getter
 public class MembersJoinDto {
 	private String username;
@@ -15,7 +15,7 @@ public class MembersJoinDto {
 	private String membersEmail;
 
 	public Users toUsers() {
-		return new Users(this.username, this.password, "members");
+		return new Users(this.username, this.password, "member");
 	}
 
 	public Members toMembers(Integer usersId) {
