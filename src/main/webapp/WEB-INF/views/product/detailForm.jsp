@@ -24,6 +24,7 @@ pageEncoding="UTF-8"%> <%@ include file="../layout/header.jsp"%>
             </div>
             <div class="mb-3 mt-3">상품재고 : ${detail.productQty}&nbsp;개</div>
         </div>
+        <c:if test="${principal.role == 'member'}">
 
         <input type="hidden" value="${detail.productId}" />
         <select name="ordersCount">
@@ -31,6 +32,7 @@ pageEncoding="UTF-8"%> <%@ include file="../layout/header.jsp"%>
                 <option value="${i}">${i}</option>
             </c:forEach></select
         >&nbsp;개
+        </c:if>
         <c:if test="${principal.role == 'member'}">
 
         <button type="submit" class="btn btn-primary">구매하기</button>
