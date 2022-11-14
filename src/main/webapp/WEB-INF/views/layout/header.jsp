@@ -38,15 +38,17 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                 </button>
                 <div class="collapse navbar-collapse" id="collapsibleNavbar">
                     <ul class="navbar-nav">
-                        <c:if test="${principal == null }">
+                        <c:if test="${principal == null}">
                             <li class="nav-item">
                                 <a class="nav-link" href="/loginForm">로그인</a>
                             </li>
+
                             <li class="nav-item">
                                 <a class="nav-link" href="/admin/joinForm"
                                     >관리자 회원가입</a
                                 >
                             </li>
+
                             <li class="nav-item">
                                 <a class="nav-link" href="/members/joinForm"
                                     >구매자 회원가입</a
@@ -54,22 +56,17 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                             </li>
                         </c:if>
 
-                        <c:if test="${not empty principal}">
-                            <li class="nav-item">
-                                <a class="nav-link" href="/listForm"
-                                    >상품목록</a
-                                >
-                            </li>
-                        </c:if>
-                        <c:if test="${principal.role == member}">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/listForm">상품목록</a>
+                        </li>
+                        <c:if test="${principal == 'member'}">
                             <li class="nav-item">
                                 <a class="nav-link" href="/orders/ordersList"
                                     >구매목록</a
                                 >
-                            </li>
-                        </c:if>
-
-                        <c:if test="${principal.role == admin}">
+                            </li></c:if
+                        >
+                        <c:if test="${principal.role == 'admin'}">
                             <li class="nav-item">
                                 <a class="nav-link" href="/product/add"
                                     >상품등록페이지</a

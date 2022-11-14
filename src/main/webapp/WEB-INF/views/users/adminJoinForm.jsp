@@ -40,7 +40,7 @@ pageEncoding="UTF-8"%> <%@ include file="../layout/header.jsp"%>
             class="btn btn-warning"
             onclick="javascript: form.action='/admin/join';"
         >
-            회원가입
+            관리자 회원가입
         </button>
     </form>
 </div>

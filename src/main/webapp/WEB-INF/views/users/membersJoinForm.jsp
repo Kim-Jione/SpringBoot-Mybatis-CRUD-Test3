@@ -41,7 +41,7 @@ pageEncoding="UTF-8"%> <%@ include file="../layout/header.jsp"%>
             class="btn btn-primary"
             onclick="javascript: form.action='/member/join';"
         >
-            회원가입
+            구매자 회원가입
         </button>
     </form>
 </div>
