@@ -43,8 +43,13 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                                 <a class="nav-link" href="/loginForm">로그인</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="/joinForm"
-                                    >회원가입</a
+                                <a class="nav-link" href="/admin/joinForm"
+                                    >관리자 회원가입</a
+                                >
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="/members/joinForm"
+                                    >구매자 회원가입</a
                                 >
                             </li>
                         </c:if>
@@ -55,6 +60,8 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                                     >상품목록</a
                                 >
                             </li>
+                        </c:if>
+                        <c:if test="${principal.role == member}">
                             <li class="nav-item">
                                 <a class="nav-link" href="/orders/ordersList"
                                     >구매목록</a

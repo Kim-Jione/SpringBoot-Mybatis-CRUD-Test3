@@ -18,8 +18,8 @@
 
 	<insert id="insert">
 		INSERT
-		INTO members(members_name, email, users_id, created_at)
-		VALUES(#{membersName}, #{email}, #{usersId}, now())
+		INTO members(members_name, members_email, users_id, created_at)
+		VALUES(#{membersName}, #{membersEmail}, #{usersId}, now())
 	</insert>
 
 

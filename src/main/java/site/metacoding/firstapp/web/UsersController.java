@@ -5,8 +5,6 @@ import javax.servlet.http.HttpSession;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.RequiredArgsConstructor;
 import site.metacoding.firstapp.domain.users.Users;
@@ -15,7 +13,6 @@ import site.metacoding.firstapp.service.UsersService;
 import site.metacoding.firstapp.web.dto.request.AdminJoinDto;
 import site.metacoding.firstapp.web.dto.request.LoginDto;
 import site.metacoding.firstapp.web.dto.request.MembersJoinDto;
-import site.metacoding.firstapp.web.dto.response.CMRespDto;
 
 @RequiredArgsConstructor
 @Controller
@@ -24,9 +21,19 @@ public class UsersController {
 	private final UsersDao usersDao;
 	private final UsersService usersService;
 
+	@GetMapping("/admin/joinForm")
+	public String adminJoinForm() {
+		return "/users/adminJoinForm";
+	}
+
+	@GetMapping("/members/joinForm")
+	public String membersJoinForm() {
+		return "/users/membersJoinForm";
+	}
+
 	// Admin 회원가입
 	@PostMapping("/admin/join")
-	public String joinadmin(AdminJoinDto adminJoinDto) {
+	public String adminJoin(AdminJoinDto adminJoinDto) {
 
 		Users usersPS = usersService.유저네임찾기(adminJoinDto.getUsername());
 		if (usersPS != null) {
@@ -39,7 +46,7 @@ public class UsersController {
 
 	// Members 회원가입
 	@PostMapping("/member/join")
-	public String joinmembers(MembersJoinDto membersJoinDto) {
+	public String membersJoin(MembersJoinDto membersJoinDto) {
 
 		Users usersPS = usersService.유저네임찾기(membersJoinDto.getUsername());
 		if (usersPS != null) {
@@ -68,7 +75,7 @@ public class UsersController {
 		}
 	}
 
-	// 관리자 로그인
+	// 구매자 로그인
 	@PostMapping("/member/login")
 	public String memberLogin(LoginDto loginDto) {
 		Users usersPS = usersDao.memberLogin(loginDto);

@@ -48,6 +48,11 @@
 		WHERE id = #{id}
 	</update>
 
+    <sql id="memberLogin">
+          
+    </sql>
+
+
 	<delete id="deleteById">
 		DELETE FROM users WHERE id = #{id}
 	</delete>

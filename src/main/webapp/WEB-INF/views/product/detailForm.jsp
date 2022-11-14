@@ -32,11 +32,14 @@ pageEncoding="UTF-8"%> <%@ include file="../layout/header.jsp"%>
             </c:forEach></select
         >&nbsp;개
         <button type="submit" class="btn btn-primary">구매하기</button>
-        <span><a href="/product/${detail.productId}/edit" class="btn btn-warning">수정하러가기</a></span>
-    </form>
-    <form action="/product/${detail.productId}/delete" method="post">
-        <button class="btn btn-danger">삭제하기</button>
-    </form>
+                        
+        <c:if test="${principal.role == admin}"> 
+            <span><a href="/product/${detail.productId}/edit" class="btn         btn-warning">수정하러가기</a></span>
+           </form>
+          <form action="/product/${detail.productId}/delete" method="post">
+                <button class="btn btn-danger">삭제하기</button>
+           </form>
+        </c:if>
 </div>
 
 <script></script>

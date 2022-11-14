@@ -18,13 +18,18 @@
 
 	<insert id="insert">
 		INSERT
-		INTO admin(admin_name, email, users_id, created_at)
-		VALUES(#{adminName}, #{email}, #{usersId}, now())
+		INTO admin(admin_name, admin_email, users_id, created_at)
+		VALUES(#{adminName}, #{adminEmail}, #{usersId}, now())
 	</insert>
 
 
 	<delete id="deleteById">
 		DELETE FROM admin WHERE id = #{adminId}
 	</delete>
+
+
+    <update id="update">
+          
+    </update>
 
 </mapper>

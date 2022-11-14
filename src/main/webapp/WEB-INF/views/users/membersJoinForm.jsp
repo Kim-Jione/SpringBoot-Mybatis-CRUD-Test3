@@ -2,7 +2,7 @@
 pageEncoding="UTF-8"%> <%@ include file="../layout/header.jsp"%>
 
 <div class="container">
-    <form method="post" name="form" contenttyp>
+    <form method="post" name="form">
         <div class="mb-3 mt-3">
             <input
                 type="text"
@@ -19,14 +19,23 @@ pageEncoding="UTF-8"%> <%@ include file="../layout/header.jsp"%>
                 name="password"
             />
         </div>
+        <div class="mb-3">
+            <input 
+                type="text"
+                class="form-control"
+                placeholder="이름"
+                name="membersName"
+            />
+        </div>
+        <div class="mb-3">
+            <input
+                type="email"
+                class="form-control"
+                placeholder="이메일"
+                name="membersEmail"
+            />
+        </div>
 
-        <button
-            type="submit"
-            class="btn btn-warning"
-            onclick="javascript: form.action='/admin/join';"
-        >
-            관리자 회원가입
-        </button>
         <button
             type="submit"
             class="btn btn-primary"
