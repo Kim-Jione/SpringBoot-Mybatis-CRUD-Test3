@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8"%> <%@ include file="../layout/header.jsp"%>
 <div class="container">
-    <br
+    <form
         action="/orders/${detail.productId}"
         method="post"
         accept-charset="UTF-8"
@@ -34,7 +34,7 @@ pageEncoding="UTF-8"%> <%@ include file="../layout/header.jsp"%>
         <c:if test="${principal.role == 'member'}">
 
         <button type="submit" class="btn btn-primary">구매하기</button>
-                      </c:if>   </br>
+                      </c:if>   </form>
         <c:if test="${principal.role == 'admin'}"> 
             <span><a href="/product/${detail.productId}/edit" class="btn         btn-warning">수정하러가기</a></span>
            </form>

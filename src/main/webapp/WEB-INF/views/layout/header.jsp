@@ -59,7 +59,7 @@ uri="http://java.sun.com/jsp/jstl/core"%>
                         <li class="nav-item">
                             <a class="nav-link" href="/listForm">상품목록</a>
                         </li>
-                        <c:if test="${principal == 'member'}">
+                        <c:if test="${principal.role == 'member'}">
                             <li class="nav-item">
                                 <a class="nav-link" href="/orders/ordersList"
                                     >구매목록</a
