@@ -38,8 +38,8 @@ public class ProductController {
 	}
 
 	@GetMapping("/product/add")
-	public String save() {
-		return "product/saveForm";
+	public String add() {
+		return "product/addForm";
 	}
 
 	// 수정하기

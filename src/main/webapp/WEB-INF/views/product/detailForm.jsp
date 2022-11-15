@@ -24,17 +24,18 @@ pageEncoding="UTF-8"%> <%@ include file="../layout/header.jsp"%>
             </div>
             <div class="mb-3 mt-3">상품재고 : ${detail.productQty}&nbsp;개</div>
         </div>
-        <c:if test="${principal.role == 'member'}">
 
-        <input type="hidden" value="${detail.productId}" />
+        <c:if test="${principal.role == 'member'|| principal == null}">
+
+        <!-- <input type="hidden" value="${detail.productId}" /> -->
         <select name="ordersCount">
             <c:forEach begin="1" end="10" var="i">
                 <option value="${i}">${i}</option>
             </c:forEach></select
         >&nbsp;개
-        </c:if>
-
-        <button type="submit" class="btn btn-primary">구매하기</button>
+       
+        
+        <button type="submit" class="btn btn-primary">구매하기</button></c:if>
                         </form>
         <c:if test="${principal.role == 'admin'}"> 
             <span><a href="/product/${detail.productId}/edit" class="btn         btn-warning">수정하러가기</a></span>

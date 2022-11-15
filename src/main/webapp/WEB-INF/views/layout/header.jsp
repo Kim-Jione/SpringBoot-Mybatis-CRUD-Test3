@@ -28,6 +28,13 @@ uri="http://java.sun.com/jsp/jstl/core"%>
         <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
             <div class="container-fluid">
                 <a class="navbar-brand" href="/">쇼핑몰</a>
+                <c:if test="${principal.role == 'admin'}">
+                    <a class="navbar-brand" href="/">관리자 모드</a></c:if
+                >
+                <c:if test="${principal.role == 'member'}">
+                    <a class="navbar-brand" href="/">구매자 모드</a></c:if
+                >
+
                 <button
                     class="navbar-toggler"
                     type="button"

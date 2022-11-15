@@ -22,12 +22,12 @@ public class UsersController {
 	private final UsersService usersService;
 
 	@GetMapping("/admin/joinForm")
-	public String adminJoinForm() {
+	public String adminJoin() {
 		return "/users/adminJoinForm";
 	}
 
 	@GetMapping("/members/joinForm")
-	public String membersJoinForm() {
+	public String membersJoin() {
 		return "/users/membersJoinForm";
 	}
 
@@ -67,7 +67,7 @@ public class UsersController {
 
 	// 관리자 로그인
 	@PostMapping("/admin/login")
-	public String AdminLogin(LoginDto loginDto) {
+	public String adminLogin(LoginDto loginDto) {
 		Users usersPS = usersDao.adminLogin(loginDto);
 		if (usersPS != null) {
 			session.setAttribute("principal", usersPS);

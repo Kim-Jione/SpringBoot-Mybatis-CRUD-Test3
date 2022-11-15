@@ -31,7 +31,7 @@
 
 	<insert id="insert">
 		INSERT INTO users(username, password, role,
-		createdAt)
+		created_at)
 		VALUES(#{username}, #{password}, #{role}, now())
 	</insert>
 
