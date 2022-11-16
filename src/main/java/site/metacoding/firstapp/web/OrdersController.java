@@ -22,6 +22,7 @@ public class OrdersController {
 	private final OrdersDao ordersDao;
 	private final HttpSession session;
 
+	// 구매 목록페이지
 	@GetMapping("/orders/ordersList")
 	public String ordersList(Model model) {
 		Users principal = (Users) session.getAttribute("principal");
@@ -34,8 +35,6 @@ public class OrdersController {
 	public String ordersProduct(@PathVariable Integer productId,
 			OrdersProductDto ordersProductDto) {
 		Users principal = (Users) session.getAttribute("principal");
-		System.out.println("디버그: 상품 구매하기");
-		System.out.println("디버그: " + productId);
 		if (principal == null) {
 			return "redirect:/loginForm";
 		}
@@ -44,7 +43,15 @@ public class OrdersController {
 			return "redirect:/";
 		}
 		productDao.productQtyUpdate(ordersProductDto);
+		System.out.println(ordersProductDto.getOrdersMember());
 		ordersDao.insert(ordersProductDto.toEntity(principal.getUsersId()));
 		return "redirect:/";
+	}
+
+	// 유저주문 삭제하기
+	@PostMapping("/members/{ordersId}/delete")
+	public String saveListDelete(@PathVariable Integer ordersId) {
+		ordersDao.delete(ordersId);
+		return "/orders/orderListForm";
 	}
 }

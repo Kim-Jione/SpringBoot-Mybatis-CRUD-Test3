@@ -7,13 +7,14 @@ import site.metacoding.firstapp.domain.orders.Orders;
 @Setter
 @Getter
 public class OrdersProductDto {
+	private String ordersMember;
 	private String ordersName;
 	private Integer ordersPrice;
 	private Integer ordersCount;
 	private Integer productId;
 
 	public Orders toEntity(Integer usersId) {
-		Orders orders = new Orders(this.ordersName, this.ordersPrice, this.ordersCount, this.productId, usersId);
+		Orders orders = new Orders(this.ordersMember, this.ordersName, this.ordersPrice, this.ordersCount, this.productId, usersId);
 		return orders;
 	}
 

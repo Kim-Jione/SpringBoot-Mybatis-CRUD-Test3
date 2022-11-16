@@ -11,8 +11,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import lombok.RequiredArgsConstructor;
+import site.metacoding.firstapp.domain.members.MembersDao;
 import site.metacoding.firstapp.domain.product.Product;
 import site.metacoding.firstapp.domain.product.ProductDao;
+import site.metacoding.firstapp.domain.users.Users;
 import site.metacoding.firstapp.service.ProductService;
 import site.metacoding.firstapp.web.dto.response.CMRespDto;
 
@@ -20,6 +22,7 @@ import site.metacoding.firstapp.web.dto.response.CMRespDto;
 @Controller
 public class ProductController {
 	private final ProductDao productDao;
+	private final MembersDao membersDao;
 	private final ProductService productService;
 	private final HttpSession session;
 
@@ -33,7 +36,13 @@ public class ProductController {
 	// 상품 상세보기 페이지
 	@GetMapping("/product/{productId}")
 	public String detail(@PathVariable Integer productId, Model model) {
+		Users principal = (Users) session.getAttribute("principal");
+		if (principal == null) {
+			return "redirect:/loginForm";
+		}
 		model.addAttribute("detail", productDao.findById(productId));
+		model.addAttribute("detail2", membersDao.findByUsersId(principal.getUsersId()));
+		System.out.println("디버그: " + principal.getUsersId());
 		return "product/detailForm";
 	}
 

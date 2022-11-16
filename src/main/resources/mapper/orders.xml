@@ -18,13 +18,13 @@
 
 	<insert id="insert">
 		INSERT
-		INTO orders(orders_name, orders_price, orders_count, users_id, product_id, created_at)
-		VALUES(#{ordersName}, #{ordersPrice}, #{ordersCount},#{usersId},#{productId}, now())
+		INTO orders(orders_member,orders_name, orders_price, orders_count, users_id, product_id, created_at)
+		VALUES(#{ordersMember},#{ordersName}, #{ordersPrice}, #{ordersCount},#{usersId},#{productId}, now())
 	</insert>
 
 
-	<delete id="deleteById">
-		DELETE FROM orders WHERE id = #{ordersId}
+	<delete id="delete">
+		DELETE FROM orders WHERE orders_id = #{ordersId}
 	</delete>
 
 </mapper>

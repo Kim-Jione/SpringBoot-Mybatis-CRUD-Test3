@@ -6,9 +6,10 @@ pageEncoding="UTF-8"%> <%@ include file="../layout/header.jsp"%>
         <thead>
             <tr>
                 <th>상품번호</th>
-                <th>상품명</th>
-                <th>상품가격</th>
-                <th>구매수량</th>
+                <th>주문명</th>
+                <th>주문가격</th>
+                <th>주문수량</th>
+                <th>주문취소</th>
             </tr>
         </thead>
         <tbody>
@@ -18,6 +19,19 @@ pageEncoding="UTF-8"%> <%@ include file="../layout/header.jsp"%>
                     <td>${ordersList.ordersName}</td>
                     <td>${ordersList.ordersPrice}</td>
                     <td>${ordersList.ordersCount}</td>
+                    <td> 
+                        <form
+                            action="/members/${ordersList.ordersId}/delete"
+                            method="post"
+                        >
+                        <input type="hidden" name="ordersCount" value="${ordersList.ordersCount}">
+                        
+                      <input type="hidden" name="productId" value="${ordersList.productId}">
+                            <button type="submit" class="btn btn-danger">
+                                주문취소
+                            </button>
+                        </form> 
+                 </td>
                 </tr>
             </c:forEach>
         </tbody>

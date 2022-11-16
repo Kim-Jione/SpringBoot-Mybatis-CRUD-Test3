@@ -9,6 +9,11 @@ pageEncoding="UTF-8"%> <%@ include file="../layout/header.jsp"%>
         <div>
             <input
                 type="hidden"
+                name="ordersMember"
+                value=" ${detail2.membersName}"
+            />
+            <input
+                type="hidden"
                 name="ordersName"
                 value=" ${detail.productName}"
             />

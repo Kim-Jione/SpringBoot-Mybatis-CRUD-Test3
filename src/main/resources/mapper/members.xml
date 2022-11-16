@@ -27,4 +27,10 @@
 		DELETE FROM members WHERE id = #{membersId}
 	</delete>
 
+
+   <select id="findByUsersId"
+		resultType="site.metacoding.firstapp.domain.members.Members">
+		SELECT * FROM members WHERE users_id=#{usersId}
+	</select>
+
 </mapper>

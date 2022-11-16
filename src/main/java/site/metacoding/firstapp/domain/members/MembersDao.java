@@ -8,6 +8,8 @@ public interface MembersDao {
 
 	public Members findById(Integer membersId);
 
+	public Members findByUsersId(Integer usersId);
+
 	public List<Members> findAll(Integer membersId);
 
 	public void update(Members members);
