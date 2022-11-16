@@ -18,4 +18,6 @@ public interface ProductDao {
 	public void deleteById(Integer productId);
 
 	public void productQtyUpdate(OrdersProductDto ordersProductDto);
+
+	public void ordersQtyUpdate(OrdersProductDto ordersProductDto);
 }

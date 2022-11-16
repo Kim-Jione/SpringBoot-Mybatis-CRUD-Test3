@@ -43,14 +43,14 @@ public class OrdersController {
 			return "redirect:/";
 		}
 		productDao.productQtyUpdate(ordersProductDto);
-		System.out.println(ordersProductDto.getOrdersMember());
 		ordersDao.insert(ordersProductDto.toEntity(principal.getUsersId()));
 		return "redirect:/";
 	}
 
 	// 유저주문 삭제하기
 	@PostMapping("/members/{ordersId}/delete")
-	public String saveListDelete(@PathVariable Integer ordersId) {
+	public String saveListDelete(@PathVariable Integer ordersId, OrdersProductDto ordersProductDto) {
+		productDao.ordersQtyUpdate(ordersProductDto);
 		ordersDao.delete(ordersId);
 		return "/orders/orderListForm";
 	}
