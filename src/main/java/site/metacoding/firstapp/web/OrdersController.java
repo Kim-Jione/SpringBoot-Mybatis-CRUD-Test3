@@ -52,6 +52,6 @@ public class OrdersController {
 	public String saveListDelete(@PathVariable Integer ordersId, OrdersProductDto ordersProductDto) {
 		productDao.ordersQtyUpdate(ordersProductDto);
 		ordersDao.delete(ordersId);
-		return "/orders/orderListForm";
+		return "redirect:/orders/ordersList";
 	}
 }
