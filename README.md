@@ -3,28 +3,27 @@
 ### 1. View 생성
 
 -   로그인 페이지
--   회원가입 페이지
+-   관리자 회원가입 페이지
+-   구매자 회원가입 페이지
 -   상품목록 페이지
--   상품 상세보기 페이지
+-   상품등록 페이지
+-   판매자 입장 상품 상세보기 페이지
+-   구매자 입장 상품 상세보기 페이지
 -   구매목록 페이지
 
 ### 2. 기능 (ajax 필요 없음) (서비스 만들 필요 없음)
 
-서버1 (판매자 서버) - DB 를 공유
-서버2 (구매자 서버)
-(구매 테이블 필요)
-(유저 테이블 필요) - 구매자
-
--   회원가입
--   로그인
--   상품목록 보기 (기존과 동일)
--   상품상세 보기 (기존과 다름 : 구매하기 버튼)
--   구매 후 상품 재고 수정
+-   구매자, 판매자별 회원가입
+-   구매자, 판매자별 로그인
+-   상품목록 보기
+-   상품상세 보기
 -   구매목록 보기
+-   주문취소하기
 
 ## 3. 고급 기능
 
 -   상품 등록시 동일한 상품명 못들어가게 하기
+-   구매 후 상품 재고 수정
 
 ### 4. 테이블 생성
 
@@ -94,32 +93,35 @@ INSERT INTO orders(orders_name, orders_price, orders_count,  product_id, users_i
 
 ### 6. 페이지
 
-회원가입 페이지
+상품관리자 회원가입 페이지
+<img src="https://user-images.githubusercontent.com/106166409/202645322-10059a4e-6630-41ba-b037-8edf32f8fad3.png"  width="1000"/>
 
-<img src="https://user-images.githubusercontent.com/106166409/201482799-f65b1ef1-8ba9-4754-b2d7-c7596a54cc9c.png"  width="1000"/>
+구매자 회원가입 페이지
+<img src="https://user-images.githubusercontent.com/106166409/202645451-eea13492-97ba-419c-bf94-2a70decc2b95.png"  width="1000"/>
 
 로그인 페이지
-<img src="https://user-images.githubusercontent.com/106166409/201482979-d188b845-cfb1-440b-b313-ef1a414869f3.png"  width="1000"/>
+<img src="https://user-images.githubusercontent.com/106166409/202645213-4d669a6f-92d8-4b58-96c7-33bebef9b7cc.png"  width="1000"/>
 
 상품목록 페이지
 
-<img src="https://user-images.githubusercontent.com/106166409/201483036-4b430ef2-3f00-4f73-8cb4-7fdbd86272ba.png"  width="1000"/>
+<img src="https://user-images.githubusercontent.com/106166409/202645187-50ece4ac-38f6-45c5-9dc0-29fa6ebdd279.png"  width="1000"/>
 
-상품 상세보기 페이지
+판매자 입장 상품 상세보기 페이지
 
-<img src="https://user-images.githubusercontent.com/106166409/201483108-c3ae0278-896a-4012-af4a-7968d31cd63c.png"  width="1000"/>
+<img src="https://user-images.githubusercontent.com/106166409/202645548-61fa708f-31db-40af-ad78-6fff267be6e6.png"  width="1000"/>
+
+구매자 입장 상품 상세보기 페이지
+
+<img src="https://user-images.githubusercontent.com/106166409/202645772-0068acf8-bb1f-48c5-b00c-531bf2069b4c.png"  width="1000"/>
+
+상품등록 페이지
+
+<img src="https://user-images.githubusercontent.com/106166409/202645648-4e5f1317-5c0e-410a-aaa5-b1e557e412f6.png"  width="1000"/>
 
 구매목록 페이지
 
-<img src="https://user-images.githubusercontent.com/106166409/201483146-76658161-6548-4a61-8a69-f81b562c9e10.png"  width="1000"/>
+<img src="https://user-images.githubusercontent.com/106166409/202645870-fa0c8c0b-c888-44a9-a536-3aedd78aade6.png"  width="1000"/>
 
 ### 7. 구현기능
 
-상품 구매시 재고 변경
-<img src="https://user-images.githubusercontent.com/106166409/201483486-ef91d914-df47-4674-9940-3b4b892d8d78.gif"  width="1000"/>
-
-상품 재고 0 미만 될시 구매되지 않고 메인 페이지로 이동
-<img src="https://user-images.githubusercontent.com/106166409/201483718-1060f738-2c6b-41c1-8cc6-02f2dbf8e37a.gif"  width="1000"/>
-
-비로그인 상태로 구매시 로그인 페이지로 이동
-<img src="https://user-images.githubusercontent.com/106166409/201483716-8e71578f-b3db-43e3-a068-0d05d2e0ab77.gif"  width="1000"/>
+-   구매자 ,판매자 입장별 다른 뷰 구현
